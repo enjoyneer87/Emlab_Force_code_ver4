@@ -63,41 +63,15 @@ for k=1:length(T)
     fr_exp=[angle fr];                               % Angle까지 합친 데이터로 export
     ft_exp=[angle ft];                               % Angle까지 합친 데이터로 export
     Torque=[steps_T calc_Torque'];                    % Step까지 합친 데이터로 계산된 Torque Export
-    
-%     Radial=[];                       %  Header 생성을 위한 작업
-%     for z1=1:div*period+1
-%     Radial_string=['Radial Force' ,num2str(z1), 'Step'];
-%     Radial_b=[Radial Radial_string];
-%     Radial=cellstr(Radial_b);
-%     end
-%     
-%     Tangential=[];                 %  Header 생성을 위한 작업
-%     for z2=1:div*period+1
-%     Tangential_string=['Tangential Force' ,num2str(z2), 'Step'];
-%     Tangential_b=[Tangential Tangential_string];
-%     Tangential=cellstr(Tangential_b);
-%     end   
-    
-%     headers = cellstr(['Angle', Radial]);
-%     csvwrite_with_headers('Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Radial_Force.csv',fr_exp,headers);
-%     headers = ['Angle',Tangential];
-%     csvwrite_with_headers('Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Tangential_Force.csv',ft_exp,headers);    
-    
-%     headers = ['Step','Calculated Torque'];
-%     csvwrite_with_headers('Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_calculated_Torque.csv',Torque,headers);    
+  
+
 
     fname_Fr=['Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Radial_Force.csv'];   % csv write 할 이름/경로 설정. 미리해야 에러안남
     csvwrite(fname_Fr,fr_exp);
     
     fname_Ft=['Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Tangential_Force.csv'];     % csv write 할 이름/경로 설정. 미리해야 에러안남
-    csvwrite(fname_Ft,ft_exp);  
-    
-    fname_Fr_T=['Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Radial_Force_Time.csv'];
-    csvwrite(fname_Fr_T,fr_T_exp); 
-    
-    fname_Ft_T=['Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_Tangential_Force_Time.csv'];
-    csvwrite(fname_Ft_T,ft_T_exp); 
-    
+    csvwrite(fname_Ft,ft_exp);     
+
     fname_T=['Output\',num2str(T(k)),'Nm@',num2str(rpm(k)),'rpm_calculated_Torque.csv'];     % csv write 할 이름/경로 설정. 미리해야 에러안남
     csvwrite(fname_T,Torque); 
     
